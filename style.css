@@ -1,0 +1,47 @@
+h1 {
+    font-family: 'Abril Fatface', serif;
+    text-align: center;
+    font-size: 35px;
+    background-color: olivedrab;
+    color: snow;
+  }
+  
+  h2, h3 {
+    font-family: 'Readex Pro', sans-serif;
+    text-align: center;
+  }
+  
+  p {
+    font-family: 'Source Serif Pro', serif;
+  }
+  
+  ul {
+    font-family: 'Source Serif Pro', serif;
+    font-weight: lighter;
+  }
+  
+  .code {
+    font-family: Monospace;
+    background-color: snow;
+    text-align: center;
+  }
+  
+  table {
+    table-layout: auto;
+    border: 1px solid black;
+    width: 100%;
+    font-family: 'Readex Pro', sans-serif;
+  }
+  
+  th {
+    background-color: tomato;
+    color: snow;
+  }
+  
+  td {
+    border: 1px solid black;
+  }
+  
+  .list-element {
+    font-weight: normal;
+  }
