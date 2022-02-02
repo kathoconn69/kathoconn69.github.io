@@ -1,9 +1,174 @@
+<!DOCTYPE html>
 <html>
- 
+<head>
+  <title>CSS Selectors & Specificity</title>
+  <link rel="stylesheet" href="resources/style.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Readex+Pro:wght@300&family=Source+Serif+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
 <body>
-  <h1>Katherine</h1>
-  <p>Professional Pervert!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+  <div>
+    <h1>CSS Selectors and Specificity</h1>
+  </div>
+
+
+  <!--Selectors Table-->
+  <div>
+    <h2>CSS Simple Selectors</h2>
+    <table>
+      <tr>
+        <th>Selector</th>
+        <th>Definition</th>
+        <th>Syntax</th>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>A type selector selects all elements of the given type within a document.</td>
+        <td class="code">element {style properties}</td>
+      </tr>
+      <tr>
+        <td>Class</td>
+        <td>A class selector matches elements based on their given class attribute.</td>
+        <td class="code">.class_name {style properties}</td>
+      </tr>
+      <tr>
+        <td>ID</td>
+        <td>An ID selector matches elements based on the value of their given ID attribute.</td>
+        <td class="code">#id_value {style properties}</td>
+      </tr>
+      <tr>
+        <td>Universal Selector</td>
+        <td>A universal selector selects all HTML elements on the page.</td>
+        <td class="code">* {style properties}</td>
+      </tr>
+      <tr>
+        <td>element, element,...</td>
+        <td>Selects all &lt;div&gt; and &lt;p&gt; elements</td>
+        <td class="code">div, p</td>
+      </tr>
+      <tr>
+        <td>element.class</td>
+        <td>Selects only &lt;p&gt; elements with class='intro'</td>
+        <td class="code">p.intro</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!--Combinators-->
+  <div>
+    <h2>CSS Combinators</h2>
+    <p>To minimize the code on a page, combine CSS selectors using combinators. A combinator explains the relationship between two elements.</p>
+    
+    <table>
+      <tr>
+        <th>Combinator</th>
+        <th>Definition</th>
+        <th>Syntax</th>
+      </tr>
+      <tr>
+        <td>Descendant Selector</td>
+        <td>The descendant selector matches all elements that are descendants of a specified element, e.g., all &lt;p&gt; elements inside &lt;div&gt; elements.</td>
+        <td  class="code">(space)</td>
+      </tr>
+      <tr>
+        <td>Child Selector</td>
+        <td>The child selector selects all elements that are the children of a specified element, e.g., all &lt;p&gt; elements that are children of a &lt;div&gt; element.</td>
+        <td  class="code">&gt;</td>
+      </tr>
+      <tr>
+        <td>Adjacent Sibling Selector</td>
+        <td>The adjacent sibling selector is used to select an element that is immediately after another specific element, e.g., the first &lt;p&gt; elements immediately after &lt;div&gt; elements.</td>
+        <td  class="code">+</td>
+      </tr>
+      <tr>
+        <td>General Sibling Selector</td>
+        <td>The general sibling selector selects all elements that are next siblings of a specified element, e.g., all &lt;p&gt; elements that are next siblings of &lt;div&gt; elements.</td>
+        <td  class="code">~</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!--Specifity Rules-->
+  <div>
+    <h2>Specifity</h2>
+    <p>If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win," and its style declaration will be applied to that HTML element.<br><br>There are four categories that define the specificity of a selector:</p>
+    <ul>
+      <li><span class="list-element">Inline styles</span> - Example: &lt;h1 style="color: pink;"&gt;</li>
+      <li><span class="list-element">IDs</span> - Example: #navbar</li>
+      <li><span class="list-element">Classes, pseudo-classes, attribute selectors</span> - Example: .test, :hover, [href]</li>
+      <li><span class="list-element">Elements and pseudo-elements</span> - Example: h1, :before</li>
+    </ul>
+    <p>To calculate specifity, start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector), add 1 for each element selector or pseudo-element.</p>
+    <!--Specifity Table-->
+    <table>
+      <tr>
+        <th>Selector</th>
+        <th>Specifity Value</th>
+        <th>Calculation</th>
+      </tr>
+      <tr>
+        <td class="code">p</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td class="code">p.test</td>
+        <td>11</td>
+        <td>1 + 10</td>
+      </tr>
+      <tr>
+        <td class="code">p#demo</td>
+        <td>101</td>
+        <td>1 + 100</td>
+      </tr>
+      <tr>
+        <td class="code">&lt;p style="color: pink;"&gt;</td>
+        <td>1000</td>
+        <td>1000</td>
+      </tr>
+      <tr>
+        <td class="code">#demo</td>
+        <td>100</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="code">.test</td>
+        <td>10</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td class="code">p.test1.test2</td>
+        <td>21</td>
+        <td>1 + 10 + 10</td>
+      </tr>
+      <tr>
+        <td class="code">#navbar p#demo</td>
+        <td>201</td>
+        <td>100 + 1 + 100</td>
+      </tr>
+      <tr>
+        <td class="code">*</td>
+        <td>0</td>
+        <td>0 (the universal selector is ignored)</td>
+      </tr>
+    </table>
+    <h3>More Specifity Rule Examples:</h3>
+      <ul>
+        <li>Equal specificity: the latest rule wins - If the same rule is written twice into the external style sheet, then the latest rule wins:<br>
+        <div class="code">
+          div#a {background-color: green;}<br>
+          #a {background-color: yellow;}<br>
+          div[id=a] {background-color: blue;}<br><br></div>The first rule is more specific than the other two, and will therefore be applied.<br><br>
+</li>
+        <li>ID selectors have a higher specificity than attribute selectors.</li>
+        <li>Contextual selectors are more specific than a single element selector - The embedded style sheet is closer to the element to be styled.</li>
+        <li>A class selector beats any number of element selectors - a class selector such as .intro beats h1, p, div, etc.</li>
+        <li>The universal selector (*) and inherited values have a specificity of 0 - The universal selector (*) and inherited values are ignored!</li>
+      </ul>
+  </div>  
 </body>
- 
 </html>
